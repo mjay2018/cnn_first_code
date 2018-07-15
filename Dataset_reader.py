@@ -53,18 +53,32 @@ class image_read ():
         self.val_size = val_size
         self._epochs_done = 0
         self._index_in_epoch = 0
+
         
+
     def image_train_test(self):
+
         self.train, self.train_y, self.test, self.test_y = load_image(self.path,self.image_size,self.val_size)
+
     def next_batch(self,batch_size):
+
         start = self._index_in_epoch
+        start1 = self._index_in_epoch
+
         self._index_in_epoch += batch_size
+
         if self._index_in_epoch > self.train.shape[0]:
+
             self._epochs_done += 1
+
             start = 0
+
             self._index_in_epoch = batch_size
+
         assert batch_size <= self.train.shape[0]
+
         end = self._index_in_epoch
+        
         return self.train[start:end], self.train_y[start:end]
         
         
