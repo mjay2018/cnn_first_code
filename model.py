@@ -132,7 +132,7 @@ def predict(layer,true_y,batch_size,ilr,data,epoch,x,r_seed,model_name,path):
         #print(msg.format(obs + 1, tr_acc, avg_cost, vl_acc, val_loss))
         print("epoch " + str(i+1) + " -training_accuracy: " + str(tr_acc)  + " -validation_accuracy: " + str(vl_acc))
         
-    print("starting saving model------")
+    #print("starting saving model------")
    # simple_save = tf.saved_model.simple_save
     #simple_save(session,path,inputs={"x":x,"y":y},outputs={"y_true":y_true})
     return session
