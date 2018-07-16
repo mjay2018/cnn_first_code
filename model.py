@@ -18,7 +18,7 @@ def biases(size):
 
 
 def cnn_layer(input1,channels,filter_size,filters_no, stride_size, pool_size,pstride_size):
-    session
+    
     ## We shall define the weights that will be trained using create_weights function.
     weight = weights(shape=[filter_size, filter_size, channels, filters_no])
     ## We create biases using the create_biases function. These are also trained.
@@ -92,7 +92,7 @@ def multi_layer_dnn(inp, no_dnn_layer,num_outputsl,use_relu=True):
 
 
 def predict(layer,true_y,batch_size,ilr,data,epoch,x,r_seed,model_name,path):
-    global session
+    session = tf.Session()
     seed(r_seed)
     set_random_seed(r_seed+1)
     
@@ -124,7 +124,8 @@ def predict(layer,true_y,batch_size,ilr,data,epoch,x,r_seed,model_name,path):
             #tr_loss =  session.run(cost, feed_dict=feed_dict_tr)
             #avg_cost += tr_loss/total_batch
             
-        #val_loss = session.run(cost, feed_dict=feed_dict_val)
+        val_loss = session.run(cost, feed_dict=feed_dict_val)
+        
         tr_acc = session.run(accuracy, feed_dict=feed_dict_tr)
         vl_acc = session.run(accuracy, feed_dict=feed_dict_val)
                 
