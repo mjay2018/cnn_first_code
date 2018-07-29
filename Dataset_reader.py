@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+ # -*- coding: utf-8 -*-
 """
 Created on Wed Jul 11 21:35:53 2018
 
@@ -26,8 +26,8 @@ def load_image(path, image_Size, val_size):
             image = image.astype(np.float32)
             image = np.multiply(image, 1.0 / 255.0)
             images.append(image)
-            label1 = np.zeros(len(label))
-            label1[index] = 1.0
+            label1 = index
+            #label1[index] = 1.0
             labels.append(label1)
             
     images = np.array(images)
